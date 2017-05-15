@@ -10,4 +10,10 @@ describe Desposit do
     end
   end
 
+  describe '#date' do
+    it 'retuns the date on which it was created' do
+      expect(deposit.date).to eq Time.now.strftime('%d/%m/%Y')
+    end
+  end
+
 end

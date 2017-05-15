@@ -4,6 +4,11 @@ class Desposit
 
   def initialize(amount)
     @amount = amount
+    @time = Time.now
+  end
+
+  def date
+    @time.strftime('%d/%m/%Y')
   end
 
 end
