@@ -1,10 +1,9 @@
 class Statement
 
-  attr_reader :transactions, :heading
+  attr_reader :transactions
 
   def initialize(transactions)
     @transactions = transactions
-    @heading = "date || credit || debit || balance"
   end
 
   def format_transactions
@@ -21,6 +20,10 @@ class Statement
     format_transactions.reverse.each do |formatted_transaction|
       puts formatted_transaction
     end
+  end
+
+  def heading
+    "date || credit || debit || balance"
   end
 
 end

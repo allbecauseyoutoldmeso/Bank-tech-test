@@ -8,8 +8,8 @@ describe Account do
     it 'is zero upon initialization of account' do
       expect(account.balance).to eq(0)
     end
-    it 'is initialized with a default overdraft of 2000' do
-      expect(account.overdraft_limit).to eq -2000
+    it 'is initialized with a default overdraft' do
+      expect(account.overdraft_limit).to eq Account::OVERDRAFT_LIMIT
     end
   end
 

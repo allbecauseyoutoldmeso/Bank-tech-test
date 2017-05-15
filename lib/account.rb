@@ -20,13 +20,13 @@ class Account
   end
 
   def deposit(amount)
-    raise 'Please deposit a valid amount.' if amount <= 0
+    raise 'Please deposit a valid amount.' if invalid?(amount)
     new_deposit = Transaction.new(amount)
     transactions.push new_deposit
   end
 
   def withdraw(amount)
-    raise 'Please withdraw a valid amount.' if amount <= 0
+    raise 'Please withdraw a valid amount.' if invalid?(amount)
     raise 'This sum exceeds your overdraft limit.' if exceeds_overdraft?(amount)
     new_withdrawal = Transaction.new(-amount)
     transactions.push new_withdrawal
@@ -44,6 +44,10 @@ class Account
   private
 
   attr_writer :overdraft_limit
+
+  def invalid?(amount)
+    amount <= 0
+  end
 
   def exceeds_overdraft?(amount)
     balance - amount < overdraft_limit
