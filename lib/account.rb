@@ -21,20 +21,20 @@ class Account
 
   def deposit(amount)
     raise 'Please deposit a valid amount.' if amount <= 0
-    d = Transaction.new(amount)
-    transactions.push d
+    new_deposit = Transaction.new(amount)
+    transactions.push new_deposit
   end
 
   def withdraw(amount)
     raise 'Please withdraw a valid amount.' if amount <= 0
     raise 'This sum exceeds your overdraft limit.' if exceeds_overdraft?(amount)
-    w = Transaction.new(-amount)
-    transactions.push w
+    new_withdrawal = Transaction.new(-amount)
+    transactions.push new_withdrawal
   end
 
   def statement
-    s = Statement.new(transactions)
-    s.print_self
+    new_statement = Statement.new(transactions)
+    new_statement.print_self
   end
 
   def extend_overdraft(amount)
