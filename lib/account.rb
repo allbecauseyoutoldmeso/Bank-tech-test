@@ -25,6 +25,7 @@ class Account
   end
 
   def withdraw(amount)
+    raise 'Please withdraw a valid amount.' if amount <= 0
     raise 'This sum exceeds your overdraft limit.' if (balance-amount) < overdraft_limit
     w = Transaction.new(-amount)
     transactions.push w

@@ -31,6 +31,9 @@ describe Account do
     it 'raises an error if withdrawal exceeds overdraft limit' do
       expect { account.withdraw(2001) }.to raise_error 'This sum exceeds your overdraft limit.'
     end
+    it 'raises an error if try to withdraw zero or less' do
+      expect { account.withdraw(0) }.to raise_error 'Please withdraw a valid amount.'
+    end
   end
 
   describe '#statement' do
