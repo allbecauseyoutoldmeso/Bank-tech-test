@@ -19,4 +19,9 @@ class Account
     @transactions.push d
   end
 
+  def withdraw(amount)
+    w = Transaction.new(-amount)
+    @transactions.push w
+  end
+
 end

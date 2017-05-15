@@ -5,7 +5,7 @@ describe Transaction do
   subject(:transaction) { described_class.new(2000) }
 
   describe '#amount' do
-    it 'returns the amount deposited' do
+    it 'returns the amount deposited or withdrawn' do
       expect(transaction.amount).to eq(2000)
     end
   end

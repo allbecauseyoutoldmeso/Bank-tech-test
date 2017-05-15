@@ -17,4 +17,11 @@ describe Account do
     end
   end
 
+  describe '#withdrawal' do
+    it 'decreases the balance by the amount withdrawn' do
+      account.withdraw(500)
+      expect(account.balance).to eq (-500)
+    end
+  end
+
 end
