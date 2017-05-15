@@ -16,6 +16,12 @@ describe Transaction do
     end
   end
 
+  describe '#statement_string' do
+    it 'formats the transaction for the statement' do
+      expect(transaction.statement_string).to eq "#{Time.now.strftime('%d/%m/%Y')} || 2000.00 || ||"
+    end
+  end
+
   describe '#is_credit' do
     it 'returns true if amount is greater than zero' do
       expect(transaction.is_credit?).to eq true
