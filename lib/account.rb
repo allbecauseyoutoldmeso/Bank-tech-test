@@ -27,14 +27,14 @@ class Account
     transactions.push w
   end
 
-  def statement_array
-    fomatted_transactions = []
-    running_total = 0
-    transactions.each do |transaction|
-      fomatted_transactions.push "#{transaction.statement_string} #{sprintf("%.2f", running_total += transaction.amount)}"
-    end
-    fomatted_transactions
-  end
+  # def statement_array
+  #   fomatted_transactions = []
+  #   running_total = 0
+  #   transactions.each do |transaction|
+  #     fomatted_transactions.push "#{transaction.statement_string} #{sprintf("%.2f", running_total += transaction.amount)}"
+  #   end
+  #   fomatted_transactions
+  # end
 
   def statement
     s = Statement.new(transactions)

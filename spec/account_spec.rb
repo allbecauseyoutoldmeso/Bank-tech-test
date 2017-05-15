@@ -24,13 +24,13 @@ describe Account do
     end
   end
 
-  describe '#statement_array' do
-    it 'prints a list of transactions' do
-      account.deposit(2000)
-      account.withdraw(500)
-      expect(account.statement_array).to eq ["#{Time.now.strftime('%d/%m/%Y')} || 2000.00 || || 2000.00", "#{Time.now.strftime('%d/%m/%Y')} || || 500.00 || 1500.00"]
-    end
-  end
+  # describe '#statement_array' do
+  #   it 'prints a list of transactions' do
+  #     account.deposit(2000)
+  #     account.withdraw(500)
+  #     expect(account.statement_array).to eq ["#{Time.now.strftime('%d/%m/%Y')} || 2000.00 || || 2000.00", "#{Time.now.strftime('%d/%m/%Y')} || || 500.00 || 1500.00"]
+  #   end
+  # end
 
   describe '#statement' do
     it "should output a statement in the correct format" do
