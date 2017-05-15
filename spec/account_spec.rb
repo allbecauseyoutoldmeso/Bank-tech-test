@@ -22,6 +22,9 @@ describe Account do
       account.withdraw(500)
       expect(account.balance).to eq -500
     end
+    it 'raises an error if withdrawal exceeds overdraft limit' do
+      expect { account.withdraw(2001) }.to raise_error 'Transaction denied.'
+    end
   end
 
   describe '#statement' do

@@ -3,9 +3,10 @@ require './lib/statement.rb'
 
 class Account
 
-  attr_reader :transactions
+  attr_reader :transactions, :overdraft_limit
 
-  def initialize
+  def initialize(overdraft_limit = -2000)
+    @overdraft_limit = -2000
     @transactions = []
   end
 
@@ -23,6 +24,7 @@ class Account
   end
 
   def withdraw(amount)
+    raise 'Transaction denied.' if (balance-amount) < overdraft_limit
     w = Transaction.new(-amount)
     transactions.push w
   end
