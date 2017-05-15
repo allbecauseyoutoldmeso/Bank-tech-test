@@ -19,12 +19,13 @@ class Account
   end
 
   def deposit(amount)
+    raise 'Please deposit a valid amount.' if amount <= 0
     d = Transaction.new(amount)
     transactions.push d
   end
 
   def withdraw(amount)
-    raise 'Transaction denied.' if (balance-amount) < overdraft_limit
+    raise 'This sum exceeds your overdraft limit.' if (balance-amount) < overdraft_limit
     w = Transaction.new(-amount)
     transactions.push w
   end

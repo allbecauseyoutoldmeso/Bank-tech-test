@@ -18,6 +18,9 @@ describe Account do
       account.deposit(2000)
       expect(account.balance).to eq 2000
     end
+    it 'raises an error if try to deposit zero or less' do
+      expect { account.deposit(0) }.to raise_error 'Please deposit a valid amount.'
+    end
   end
 
   describe '#withdrawal' do
@@ -26,7 +29,7 @@ describe Account do
       expect(account.balance).to eq -500
     end
     it 'raises an error if withdrawal exceeds overdraft limit' do
-      expect { account.withdraw(2001) }.to raise_error 'Transaction denied.'
+      expect { account.withdraw(2001) }.to raise_error 'This sum exceeds your overdraft limit.'
     end
   end
 
