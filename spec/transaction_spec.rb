@@ -16,4 +16,10 @@ describe Transaction do
     end
   end
 
+  describe '#is_credit' do
+    it 'returns true if amount is greater than zero' do
+      expect(transaction.is_credit?).to eq true
+    end
+  end
+
 end

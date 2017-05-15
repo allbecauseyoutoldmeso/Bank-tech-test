@@ -11,4 +11,8 @@ class Transaction
     time.strftime('%d/%m/%Y')
   end
 
+  def is_credit?
+    amount >=0
+  end
+
 end
