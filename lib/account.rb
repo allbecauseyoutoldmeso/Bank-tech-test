@@ -30,8 +30,7 @@ class Account
     fomatted_transactions = []
     running_total = 0
     transactions.each do |transaction|
-      running_total += transaction.amount
-      fomatted_transactions.push "#{transaction.statement_string} #{sprintf("%.2f", running_total)}"
+      fomatted_transactions.push "#{transaction.statement_string} #{sprintf("%.2f", running_total += transaction.amount)}"
     end
     fomatted_transactions
   end

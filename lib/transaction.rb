@@ -12,16 +12,11 @@ class Transaction
   end
 
   def statement_string
-    if is_credit?
-      "#{date} || #{sprintf("%.2f", amount)} || ||"
-    else
-      "#{date} || || #{sprintf("%.2f", -amount)} ||"
-    end
+    is_credit? ? "#{date} || #{sprintf("%.2f", amount)} || ||" : "#{date} || || #{sprintf("%.2f", -amount)} ||"
   end
 
   def is_credit?
     amount >=0
   end
 
-# sprintf("%.2f", balance)
 end
