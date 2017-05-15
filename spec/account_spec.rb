@@ -32,4 +32,12 @@ describe Account do
     end
   end
 
+  describe '#statement' do
+    it "should output a statement in the correct format" do
+      account.deposit(2000)
+      account.withdraw(500)
+      expect { account.statement }.to output("date || credit || debit || balance\n#{Time.now.strftime('%d/%m/%Y')} || || 500.00 || 1500.00\n#{Time.now.strftime('%d/%m/%Y')} || 2000.00 || || 2000.00\n").to_stdout
+    end
+  end
+
 end
