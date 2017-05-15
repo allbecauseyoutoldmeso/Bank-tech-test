@@ -8,6 +8,9 @@ describe Account do
     it 'is zero upon initialization of account' do
       expect(account.balance).to eq(0)
     end
+    it 'is initialized with a default overdraft of 2000' do
+      expect(account.overdraft_limit).to eq -2000
+    end
   end
 
   describe '#deposit' do
@@ -33,6 +36,13 @@ describe Account do
       account.withdraw(500)
       expect { account.statement }.to output("date || credit || debit || balance\n#{Time.now.strftime('%d/%m/%Y')} || || 500.00 || 1500.00\n#{Time.now.strftime('%d/%m/%Y')} || 2000.00 || || 2000.00\n").to_stdout
     end
+  end
+
+  describe '#extend_overdraft' do
+    it 'should reset the overdraft limit' do
+      account.extend_overdraft(-2500)
+      expect { account.withdraw(2001) }.not_to raise_error
+      end
   end
 
 end

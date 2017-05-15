@@ -34,4 +34,12 @@ class Account
     s.print_self
   end
 
+  def extend_overdraft(amount)
+    self.overdraft_limit = amount
+  end
+
+  private
+
+  attr_writer :overdraft_limit
+
 end
