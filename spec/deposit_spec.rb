@@ -1,6 +1,6 @@
 require 'deposit'
 
-describe Desposit do
+describe Deposit do
 
   subject(:deposit) { described_class.new(2000) }
 

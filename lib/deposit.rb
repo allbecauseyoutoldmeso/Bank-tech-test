@@ -1,4 +1,4 @@
-class Desposit
+class Deposit
 
   attr_reader :amount, :time
 
