@@ -8,9 +8,9 @@ describe Statement do
   subject(:statement) { described_class.new([transaction_1, transaction_2])}
 
 
-  describe '#statement_array' do
+  describe '#format_transactions' do
     it 'returns a list of formatted transactions' do
-      expect(statement.statement_array).to eq ["#{Time.now.strftime('%d/%m/%Y')} || 2000.00 || || 2000.00", "#{Time.now.strftime('%d/%m/%Y')} || || 500.00 || 1500.00"]
+      expect(statement.format_transactions).to eq ["#{Time.now.strftime('%d/%m/%Y')} || 2000.00 || || 2000.00", "#{Time.now.strftime('%d/%m/%Y')} || || 500.00 || 1500.00"]
     end
   end
 

@@ -4,7 +4,7 @@ class Statement
     @transactions = transactions
   end
 
-  def statement_array
+  def format_transactions
     fomatted_transactions = []
     running_total = 0
     @transactions.each do |transaction|
@@ -15,9 +15,9 @@ class Statement
 
   def print_self
     puts "date || credit || debit || balance"
-    statement_array.reverse.each do |formatted_transaction|
+    format_transactions.reverse.each do |formatted_transaction|
       puts formatted_transaction
     end
   end
-  
+
 end
