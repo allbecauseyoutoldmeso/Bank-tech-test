@@ -1,6 +1,6 @@
 class Desposit
 
-  attr_reader :amount
+  attr_reader :amount, :time
 
   def initialize(amount)
     @amount = amount
@@ -8,7 +8,7 @@ class Desposit
   end
 
   def date
-    @time.strftime('%d/%m/%Y')
+    time.strftime('%d/%m/%Y')
   end
 
 end
