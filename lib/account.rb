@@ -24,4 +24,14 @@ class Account
     @transactions.push w
   end
 
+  def statement_array
+    @fomatted_transactions = []
+    running_total = 0
+    @transactions.each do |transaction|
+      running_total += transaction.amount
+      @fomatted_transactions.push "#{transaction.statement_string} #{sprintf("%.2f", running_total)}"
+    end
+    @fomatted_transactions
+  end
+
 end

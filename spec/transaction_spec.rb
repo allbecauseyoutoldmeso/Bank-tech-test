@@ -18,7 +18,7 @@ describe Transaction do
 
   describe '#statement_string' do
     it 'formats the transaction for the statement' do
-      expect(transaction.statement_string).to eq "#{Time.now.strftime('%d/%m/%Y')} || 2000.00 || ||"
+    expect(transaction.statement_string).to eq "#{Time.now.strftime('%d/%m/%Y')} || 2000.00 || ||"
     end
   end
 

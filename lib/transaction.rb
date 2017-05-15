@@ -15,7 +15,7 @@ class Transaction
     if is_credit?
       "#{date} || #{sprintf("%.2f", amount)} || ||"
     else
-      "#{date} || || #{sprintf("%.2f", amount)} ||"
+      "#{date} || || #{sprintf("%.2f", -amount)} ||"
     end
   end
 
