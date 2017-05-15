@@ -1,4 +1,5 @@
 require './lib/transaction.rb'
+require './lib/statement.rb'
 
 class Account
 
@@ -36,11 +37,12 @@ class Account
   end
 
   def statement
-    puts "date || credit || debit || balance"
-    statement_array.reverse.each do |formatted_transaction|
-      puts formatted_transaction
-    end
-
+    s = Statement.new(transactions)
+    s.print_self
+    # puts "date || credit || debit || balance"
+    # statement_array.reverse.each do |formatted_transaction|
+    #   puts formatted_transaction
+    # end
   end
 
 end
