@@ -4,9 +4,10 @@ require './lib/statement.rb'
 class Account
 
   attr_reader :transactions, :overdraft_limit
+  OVERDRAFT_LIMIT = -2000
 
-  def initialize(overdraft_limit = -2000)
-    @overdraft_limit = -2000
+  def initialize(overdraft_limit = OVERDRAFT_LIMIT)
+    @overdraft_limit = overdraft_limit
     @transactions = []
   end
 
@@ -26,7 +27,7 @@ class Account
 
   def withdraw(amount)
     raise 'Please withdraw a valid amount.' if amount <= 0
-    raise 'This sum exceeds your overdraft limit.' if (balance-amount) < overdraft_limit
+    raise 'This sum exceeds your overdraft limit.' if exceeds_overdraft?(amount)
     w = Transaction.new(-amount)
     transactions.push w
   end
@@ -43,5 +44,9 @@ class Account
   private
 
   attr_writer :overdraft_limit
+
+  def exceeds_overdraft?(amount)
+    balance - amount < overdraft_limit
+  end
 
 end
