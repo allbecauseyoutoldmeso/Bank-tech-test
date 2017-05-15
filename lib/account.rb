@@ -1,4 +1,4 @@
-require './lib/deposit.rb'
+require './lib/transaction.rb'
 
 class Account
 
@@ -14,10 +14,8 @@ class Account
     total
   end
 
-
-
   def deposit(amount)
-    d = Deposit.new(amount)
+    d = Transaction.new(amount)
     @transactions.push d
   end
 
