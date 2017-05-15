@@ -36,4 +36,12 @@ class Account
     fomatted_transactions
   end
 
+  def statement
+    puts "date || credit || debit || balance"
+    statement_array.reverse.each do |formatted_transaction|
+      puts formatted_transaction
+    end
+
+  end
+
 end
