@@ -11,7 +11,8 @@
 `account.withdraw(5)`  
 `account.statement`  
 and you should see something like...
-```date || credit || debit || balance
+```
+date || credit || debit || balance
 08/06/2017 || || 5.00 || 85.00
 08/06/2017 || || 10.00 || 90.00
 08/06/2017 || 100.00 || || 100.00```
