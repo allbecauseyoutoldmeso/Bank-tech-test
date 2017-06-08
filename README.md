@@ -4,7 +4,7 @@
 
 * To play with it yourself clone the repository, navigate into the folder, and then:  
 `pry` or `irb`  
-`require './lib/account.rb`  
+`require './lib/account.rb'`  
 `account = Account.new(-200)`  
 `account.deposit(100)`  
 `account.withdraw(10)`  
